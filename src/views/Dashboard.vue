@@ -16,13 +16,13 @@ import EventCard from '../components/EventCard'
 
 export default {
   components: { EventCard },
-  data () {
+  data() {
     return {
       isLoading: true,
       events: []
     }
   },
-  created () {
+  created() {
     axios.get('//localhost:3000/dashboard').then(({ data }) => {
       this.events = data.events.events
       this.isLoading = false

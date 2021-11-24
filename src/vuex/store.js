@@ -7,11 +7,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: null
+    user: null,
+    test: 'test'
   },
   mutations: {
     SET_USER_DATA(state, userData) {
-      state.user = localStorage.setItem('user', JSON.stringify(userData))
+      state.user = userData
+      localStorage.setItem('user', JSON.stringify(userData))
       axios.defaults.headers.common['Authorization'] = `Bearer ${
         userData.token
       }`
@@ -38,6 +40,11 @@ export default new Vuex.Store({
         .catch(err => {
           console.log(err)
         })
+    }
+  },
+  getters: {
+    loggedIn(state) {
+      return !!state.user
     }
   }
 })
