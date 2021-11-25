@@ -30,9 +30,6 @@ export default new Vuex.Store({
         .then(({ data }) => {
           commit('SET_USER_DATA', data)
         })
-        .catch(err => {
-          console.log(err)
-        })
     },
 
     login({ commit }, credentials) {
@@ -40,9 +37,6 @@ export default new Vuex.Store({
         .post('//localhost:3000/login', credentials)
         .then(({ data }) => {
           commit('SET_USER_DATA', data)
-        })
-        .catch(err => {
-          console.log(err)
         })
     },
 
